@@ -6,7 +6,7 @@ import { CampoDeEntrada } from "../CampoDeEntrada";
 import { Botao } from "../Botao";
 import { ListaSuspensa } from "../ListaSuspensa";
 
-export function FormularioDeEvento({ temas }) {
+export function FormularioDeEvento({ temas, aoSubmeter }) {
   function aoFormSubmetido(formData) {
     const evento = {
       capa: formData.get("capa"),
@@ -17,7 +17,7 @@ export function FormularioDeEvento({ temas }) {
       titulo: formData.get("nomeEvento"),
     };
 
-    console.log("evento", evento);
+    aoSubmeter(evento);
   }
 
   return (
