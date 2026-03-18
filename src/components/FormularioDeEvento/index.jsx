@@ -6,22 +6,41 @@ import { CampoDeEntrada } from "../CampoDeEntrada";
 import { Botao } from "../Botao";
 import { ListaSuspensa } from "../ListaSuspensa";
 
-export function FormularioDeEvento() {
+export function FormularioDeEvento({ temas }) {
   return (
     <form className="form-evento">
       <TituloFormulario>Preencha para criar um evento:</TituloFormulario>
       <div className="campos">
         <CampoDeFormulario>
           <Label htmlFor="nomeDoEvento">Qual o nome do evento?</Label>
-          <CampoDeEntrada type="text" id="nome" placeholder="Summer dev hits" />
+          <CampoDeEntrada
+            type="text"
+            id="nome"
+            placeholder="Summer dev hits"
+            name="nomeEvento"
+          />
         </CampoDeFormulario>
         <CampoDeFormulario>
-          <Label htmlFor="dataDoEvento">Data do evento?</Label>
-          <CampoDeEntrada type="date" id="data" placeholder="XX/XX/XXXX" />
+          <Label htmlFor="capa">Qual o endereço da imagem de capa?</Label>
+          <CampoDeEntrada
+            type="text"
+            id="capa"
+            placeholder="http:://..."
+            name="capa"
+          />
         </CampoDeFormulario>
         <CampoDeFormulario>
-          <Label htmlFor="temaDoEvento">Tema do evento?</Label>
-          <ListaSuspensa></ListaSuspensa>
+          <Label htmlFor="dataDoEvento">Data do evento</Label>
+          <CampoDeEntrada
+            type="date"
+            id="data"
+            placeholder="XX/XX/XXXX"
+            name="data"
+          />
+        </CampoDeFormulario>
+        <CampoDeFormulario>
+          <Label htmlFor="temaDoEvento">Tema do evento</Label>
+          <ListaSuspensa id="tema" name="tema" itens={temas}></ListaSuspensa>
         </CampoDeFormulario>
       </div>
       <div className="acoes">
